@@ -1,42 +1,35 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/24 17:05:30 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/02/24 17:24:10 by mduhoux          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **ag)
+int	ft_isvalid(int ac,char **ag)
 {
 	int	i;
-	int	j;
 
-	i = 0;
+	i = 1;
+	while (i < ac)
+	{
+		if (*ag[i] == '+' || *ag[i] == '-')
+			i++;
+		if (*ag[i] < '0' ||  *ag[i] > '9')
+		{
+			write(1, "Error\n", 6);
+			return (0);
+		}
+ 		i++;
+	}
+	write(1, "OK\n", 3);
+	return (1);
+}
+
+int	main(int ac, char **ag)
+{
 	if (ac < 2)
 	{
 		write(1, "Error\n", 6);
 		return (1);
-	}	
-	while (i < ac)
-	{
-		j = 0;
-		while (*ag[j])
-		{
-			if (*ag[j] >= '0' &&  *ag[j] <= '9')
-			{
-				write(1, "Error\n", 6);
-				return (1);
-			}
-			else
-				write(1, "OK", 1);
-			j++;
-		}
-		i++;
-	}	
+	}
+	ft_isvalid(ac, ag);
+	return (0);
 }
+
+
