@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   compare_args.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/28 15:10:07 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/03/28 16:29:13 by mduhoux          ###   ########.fr       */
+/*   Created: 2026/03/28 16:13:53 by mduhoux           #+#    #+#             */
+/*   Updated: 2026/03/28 16:23:03 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-
-typedef struct	s_list
+int	ft_compare_args(t_list *stack)
 {
-	int	value;
-	struct s_list *next;
-} t_list;
-
-t_list	*ft_create_node(int value);
-void	*ft_add_list(t_list **begin, t_list *new_last_node);
-void	*ft_clear(t_list **lst);
-int	ft_atoi(char *str);
-int	ft_convert_args(stack);
-
-#endif
+	while (stack->next != NULL)
+	{
+		while (stack != NULL)
+		{
+			if (stack->value == stack->next->value)
+				return (1);
+			else 
+				stack->next = stack->next->next;
+		}
+		stack = stack->next;
+	}
+	return (0);
+}

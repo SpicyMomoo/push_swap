@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/28 11:54:58 by mduhoux           #+#    #+#             */
+/*   Updated: 2026/03/28 16:06:55 by mduhoux          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-t_list	*create_node(int value)
+t_list	*ft_create_node(int value)
 {
 	t_list *node;
 
@@ -12,7 +24,7 @@ t_list	*create_node(int value)
 	return (node);
 }
 
-void	*add_list(t_list **begin, t_list *new_last_node)
+void	*ft_add_list(t_list **begin, t_list *new_last_node)
 {
 	t_list	*tmp;
 
@@ -25,7 +37,7 @@ void	*add_list(t_list **begin, t_list *new_last_node)
 	return (0);
 }
 
-void	*clear(t_list **lst)
+void	*ft_clear(t_list **lst)
 {
 	t_list	*tmp;
 
