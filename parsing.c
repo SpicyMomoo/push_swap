@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 15:11:01 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/03/29 20:21:54 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/03/29 20:47:23 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_isdigit(int ac,char **ag)
 }
 
 int	ft_compare(int ac, char **ag)
-
+{
 	int	i;
 	int	j;
 
@@ -86,19 +86,21 @@ t_list	*ft_convert_args(int ac, char **ag, t_list *stack)
 }
 int	ft_isvalid(ac, ag)
 {
-	if (ft_isdigit(ac, ag)
+	if (ft_isdigit(ac, ag))
 		ft_convert_args(ac, ag, stack);
 	
 }
 int	main(int ac, char **ag)
 {
+	t_list	*stack = NULL;
 	if (ac < 2)
 	{
 		write(1, "Error\n", 6);
 		return (0);
 	}
-	if (ft_isvalid(ac, ag))
-	if (ft_compare_args(stack));
+	if (ft_isvalid(ac, &ag))
+		(ft_compare_args(ac, ag, stack));
+	else 
 		write(1, "Error\n", 6);
 	return (0);
 }
