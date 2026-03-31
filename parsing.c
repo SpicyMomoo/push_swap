@@ -38,7 +38,7 @@ int	ft_isdigit(int ac,char **ag)
 	return (1);
 }
 
-int	ft_compare(int ac, char **ag)
+int	ft_compare(t_list **stack)
 {
 	int	i;
 	int	j;
@@ -62,14 +62,14 @@ int	ft_compare(int ac, char **ag)
 	return (1);
 }
 
-t_list	*ft_convert_args(int ac, char **ag, t_list *stack)
+t_list	*ft_convert_args(int ac, char **ag, t_list **stack)
 {
 	int	i;
 	int	j;
 	t_list	*next_node;
 
 	i = 2;
-	stack = ft_create_node(ft_atoi(ag[1]));
+	*stack = ft_create_node(ft_atoi(ag[1]));
 	while (i < ac)
 	{
 		j = 0;
@@ -78,17 +78,16 @@ t_list	*ft_convert_args(int ac, char **ag, t_list *stack)
 			j++;
 		}
 		next_node = ft_create_node(ft_atoi(ag[i]));
-		ft_add_list(&stack, next_node);	
+		ft_add_list(stack, next_node);	
 		i++;
 	}
 	write(1, "OK - les arguments sont convertis\n", 34);
-	return (stack);
+	return (*stack);
 }
-int	ft_isvalid(ac, ag)
+int	ft_isvalid(int ac, char **ag, t_list **stack)
 {
 	if (ft_isdigit(ac, ag))
 		ft_convert_args(ac, ag, stack);
-	
 }
 int	main(int ac, char **ag)
 {
@@ -98,7 +97,7 @@ int	main(int ac, char **ag)
 		write(1, "Error\n", 6);
 		return (0);
 	}
-	if (ft_isvalid(ac, &ag))
+	if (ft_isvalid(ac, ag, &stack))
 		(ft_compare_args(ac, ag, stack));
 	else 
 		write(1, "Error\n", 6);
