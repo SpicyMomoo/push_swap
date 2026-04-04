@@ -6,11 +6,11 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 21:03:30 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/03/28 15:54:06 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/04 22:06:29 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 size_t	ft_words(char const *s, char c)
 {
@@ -84,21 +84,4 @@ char	**ft_split(char const *s, char c)
 	if (!m)
 		return (NULL);
 	return (fill_str(m, s, c));
-}
-
-#include <stdio.h>
-
-int	main(void)
-{
-	char **str;
-	int	i;
-
-	str = ft_split("Morgane,,, Ajit,,,,Mia", ',');
-	i = 0;
-	while (str[i])
-	{
-		printf("%s\n", str[i]);
-		i++;
-	}
-	return (0);
 }

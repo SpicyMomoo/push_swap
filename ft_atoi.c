@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 12:05:07 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/03/07 14:47:54 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/04 22:05:11 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,5 @@ int	ft_atoi(char *str)
 		res = res * 10 + (str[i] - '0');
 		i++;
 	}
-	return (sign *res);
+	return (sign * res);
 }
-/*
-int	main(void)
-{
-	printf("%d\n", ft_atoi("    +4577827289"));
-	printf("%d", atoi("    +4577827289"));
-}*/

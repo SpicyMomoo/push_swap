@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 11:43:24 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/03/15 18:25:18 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/04 22:07:48 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_push(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
 	t_list	*tmp2;
-	
+
 	tmp2 = NULL;
 	if (!*stack_a)
 		return ;
@@ -71,4 +71,3 @@ int	main(int ac, char **ag)
 		stack_b = stack_b->next;
 	}
 }*/
-

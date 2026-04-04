@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 17:10:22 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/03/08 18:01:56 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/04 22:12:11 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 void	ft_swap_a(t_list **begin)
 {
 	t_list	*tmp;
-	if((*begin)->next == NULL || *begin == NULL)
-			return ;
-	tmp  = (*begin)->next;
+
+	if ((*begin)->next == NULL || *begin == NULL)
+		return ;
+	tmp = (*begin)->next;
 	(*begin)->next = tmp->next;
 	tmp->next = *begin;
 	*begin = tmp;

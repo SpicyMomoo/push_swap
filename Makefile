@@ -4,9 +4,11 @@ CFLAGS = -Wall -Werror -Wextra -g
 
 SRC = ft_atoi.c list.c parsing.c push_a.c swap.c
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
+
+OBJ_DIR = build
 
 #$(NAME): $(OBJ)
 #	ar rcs $(NAME) $(OBJ)
@@ -14,8 +16,11 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.c ft_printf.h
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
 
 clean:
 	rm -f $(OBJ)
