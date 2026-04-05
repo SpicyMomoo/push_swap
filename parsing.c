@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 15:11:01 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/05 19:37:21 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/05 22:51:15 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int	ft_isnb(int ac, char **ag)
 		{
 			if (ag[i][j] < '0' || ag[i][j] > '9')
 			{
-				if (ag[i][j] == '-' && j != 0)
+				if ((ag[i][j] == '-' && j != 0)
+					|| ag[i][j] != '-')
 				{
 					write(1, "Error\n", 6);
 					return (0);
@@ -45,7 +46,7 @@ int	ft_compare(t_stack **stack)
 {
 	t_stack	*tmp;
 
-	if (stack == NULL)
+	if (*stack == NULL)
 	{
 		write(1, "NO - ft_compare\n", 16);
 		return (0);
@@ -124,16 +125,21 @@ t_stack	*ft_convert_split_args(char **ag, t_stack **stack)
 	return (*stack);
 }
 
-int	ft_isvalid(int ac, char **ag, t_stack **stack)
+int	ft_isvalid(int ac, char **ag, t_stack **stack, char **str)
 {
-	if (ft_isnb(ac, ag))
-		ft_convert_args(ac, ag, stack);
-	else
+	if (ac == 2)
 	{
-		write(1, "KO - ft_isdigit\n", 16);
-		return (0);
+		if (ft_check_digit(ag))
+		{	
+			str = ft_split(ag[1], ' ');	
+			ft_convert_split_args(str, stack);
+		}
 	}
-	write(1, "OK - ft_isvalid\n", 16);
+	if (ac > 2)
+	{
+		if (ft_isnb(ac, ag))
+			ft_convert_args(ac, ag, stack);
+	}
 	return (1);
 }
 
@@ -149,39 +155,12 @@ int	main(int ac, char **ag)
 		write(1, "Error\n", 6);
 		return (1);
 	}
-	if (ac == 2)
-	{
-		if (ft_check_digit(ag))
-		{
-			str = ft_split(ag[1], ' ');	
-			ft_convert_split_args(str, &stack);
-		}
-		else
-		{
-			write(1, "Error\n", 6);
-			return (1);
-		}	
+	if (ft_isvalid(ac, ag, &stack, str))
+	{	
 		if (ft_compare(&stack))
 			write(1, "OK - pour trier\n", 16);
 		else
 			write(1, "Error - ft_compare\n", 19);
 	}
-	else if (ac > 2)
-	{
-		if (ft_isvalid(ac, ag, &stack))
-		{	
-			if (ft_compare(&stack))
-				write(1, "OK - pour trier\n", 16);
-			else
-				write(1, "Error - ft_compare\n", 6);
-		}
-	}	
-//		if (ft_isvalid(ac, str, &stack))
-//		{	
-//			if (ft_compare(&stack))
-//				write(1, "OK - pour trier\n", 16);
-//			else
-//				write(1, "Error - ft_compare\n", 6);
-//		}
 	return (0);
 }
