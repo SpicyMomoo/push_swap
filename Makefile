@@ -1,35 +1,38 @@
-NAME = push_swap.a
-CC = cc
-CFLAGS = -Wall -Werror -Wextra -g
+NAME = push_swap
 
-SRC = ft_atoi.c list.c parsing.c push_a.c swap.c
+CC = cc
+
+CFLAGS = -Wall -Wextra -Werror 
+ 
+SRC = list.c parsing.c push_a.c swap.c
 
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
-all: $(NAME)
+LIBFT = ./libft/libft.a
 
 OBJ_DIR = build
 
-#$(NAME): $(OBJ)
-#	ar rcs $(NAME) $(OBJ)
+all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	@make -C ./libft 1>/dev/null
+	@$(CC) $(CFLAGS) -o $(NAME) $(LIBFT) $(TOOLS) $(LINK) $(SRC) -I./includes -I./libft
+	@echo "Compilation successful!"
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@ -I./includes -I./libft
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
 clean:
-	rm -f $(OBJ)
-	rm -rf $(OBJ_DIR)
+	@make clean -C ./libft 1>/dev/null
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	rm -f $(NAME)
+	@make fclean -C ./libft 1>/dev/null
+	@rm -f $(NAME) *.o
 
-re: fclean all
+re: fclean $(NAME)
 
-.PHONY: all clean fclean re
-
+.PHONY: all fclean clean re printf

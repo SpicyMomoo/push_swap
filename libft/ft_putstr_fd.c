@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/07 12:05:07 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/04 22:05:11 by mduhoux          ###   ########.fr       */
+/*   Created: 2025/11/11 21:16:55 by mduhoux           #+#    #+#             */
+/*   Updated: 2025/11/11 21:18:08 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	ft_atoi(char *str)
+void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
-	int	sign;
-	int	res;
 
 	i = 0;
-	sign = 1;
-	res = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (s[i])
 	{
-		if (str[i] == '-')
-			sign = -sign;
+		write(fd, &s[i], 1);
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + (str[i] - '0');
-		i++;
-	}
-	return (sign * res);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	ft_putstr_fd("cerises", 1);
+}*/

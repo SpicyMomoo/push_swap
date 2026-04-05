@@ -6,18 +6,20 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 15:11:01 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/05 12:27:45 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/05 14:50:07 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_isdigit(int ac, char **ag)
+int	ft_isnb(int ac, char **ag)
 {
 	int	i;
 	int	j;
 
 	i = 1;
+	if (!*ag[1])
+		return (0);
 	while (i < ac)
 	{
 		j = 0;
@@ -38,9 +40,9 @@ int	ft_isdigit(int ac, char **ag)
 	return (1);
 }
 
-int	ft_compare(t_list **stack)
+int	ft_compare(t_stack **stack)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	if (stack == NULL)
 	{
@@ -65,11 +67,11 @@ int	ft_compare(t_list **stack)
 	return (1);
 }
 
-t_list	*ft_convert_args(int ac, char **ag, t_list **stack)
+t_stack	*ft_convert_args(int ac, char **ag, t_stack **stack)
 {
 	int			i;
 	int			j;
-	t_list		*next_node;
+	t_stack		*next_node;
 
 	i = 2;
 	if (!stack)
@@ -93,9 +95,9 @@ t_list	*ft_convert_args(int ac, char **ag, t_list **stack)
 	return (*stack);
 }
 
-int	ft_isvalid(int ac, char **ag, t_list **stack)
+int	ft_isvalid(int ac, char **ag, t_stack **stack)
 {
-	if (ft_isdigit(ac, ag))
+	if (ft_isnb(ac, ag))
 		ft_convert_args(ac, ag, stack);
 	else
 	{
@@ -108,13 +110,18 @@ int	ft_isvalid(int ac, char **ag, t_list **stack)
 
 int	main(int ac, char **ag)
 {
-	t_list	*stack;
+	t_stack	*stack;
+	char **str;
 
 	stack = NULL;
-	if (ac < 2)
+	if (ac == 1)
 	{
 		write(1, "Error\n", 6);
 		return (0);
+	}
+	if (ac == 2)
+	{
+		str = ft_split(ag[1], ' ');
 	}
 	if (ft_isvalid(ac, ag, &stack))
 	{

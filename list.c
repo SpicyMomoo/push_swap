@@ -6,17 +6,17 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 11:54:58 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/04 22:12:39 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/05 15:06:11 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_create_node(int value)
+t_stack	*ft_create_node(int value)
 {
-	t_list	*node;
+	t_stack	*node;
 
-	node = malloc(sizeof(t_list));
+	node = malloc(sizeof(t_stack));
 	if (!node)
 		return (NULL);
 	node->value = value;
@@ -24,9 +24,9 @@ t_list	*ft_create_node(int value)
 	return (node);
 }
 
-void	*ft_add_list(t_list **begin, t_list *new_last_node)
+void	*ft_add_list(t_stack **begin, t_stack *new_last_node)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	tmp = *begin;
 	while (tmp->next != NULL)
@@ -37,9 +37,9 @@ void	*ft_add_list(t_list **begin, t_list *new_last_node)
 	return (0);
 }
 
-void	*ft_clear(t_list **lst)
+void	*ft_clear(t_stack **lst)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	while (*lst != NULL)
 	{
@@ -54,9 +54,9 @@ void	*ft_clear(t_list **lst)
 {
 	if (ac < 2)
 		return (0);
-	t_list *begin;
-	t_list *node1;
-	t_list *node2;
+	t_stack *begin;
+	t_stack *node1;
+	t_stack *node2;
 	
 	begin = create_node(ft_atoi(ag[1]));
 	printf("%d\n", begin->value);

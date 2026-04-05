@@ -6,11 +6,11 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 21:03:30 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/04 22:06:29 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/05 14:43:10 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
 size_t	ft_words(char const *s, char c)
 {
