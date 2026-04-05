@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 15:11:01 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/04 22:18:19 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/05 12:27:45 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	ft_compare(t_list **stack)
 {
 	t_list	*tmp;
 
-	tmp = *stack;
 	if (stack == NULL)
 	{
 		write(1, "NO - ft_compare\n", 16);
@@ -50,6 +49,7 @@ int	ft_compare(t_list **stack)
 	}
 	while ((*stack)->next != NULL)
 	{
+		tmp = *stack;
 		while (tmp->next != NULL)
 		{
 			if ((*stack)->value == tmp->next->value)
