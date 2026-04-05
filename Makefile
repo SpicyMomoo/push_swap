@@ -1,22 +1,19 @@
 NAME = push_swap
-
 CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
-CFLAGS = -Wall -Wextra -Werror 
- 
 SRC = list.c parsing.c push_a.c swap.c
-
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
-
 LIBFT = ./libft/libft.a
-
 OBJ_DIR = build
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(LIBFT):
 	@make -C ./libft 1>/dev/null
-	@$(CC) $(CFLAGS) -o $(NAME) $(LIBFT) $(TOOLS) $(LINK) $(SRC) -I./includes -I./libft
+
+$(NAME): $(LIBFT) $(OBJ)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) -I./includes -I./libft
 	@echo "Compilation successful!"
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
@@ -31,15 +28,8 @@ clean:
 
 fclean: clean
 	@make fclean -C ./libft 1>/dev/null
-	@rm -f $(NAME) *.o
+	@rm -f $(NAME)
 
 re: fclean $(NAME)
 
 .PHONY: all fclean clean re
-
-/usr/bin/ld: /tmp/parsing-7eeea0.o: in function `ft_convert_args':
-parsing.c:(.text+0x2a4): undefined reference to `ft_atoi'
-/usr/bin/ld: parsing.c:(.text+0x301): undefined reference to `ft_atoi'
-/usr/bin/ld: /tmp/parsing-7eeea0.o: in function `main':
-parsing.c:(.text+0x455): undefined reference to `ft_split'
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
