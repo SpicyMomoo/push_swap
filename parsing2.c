@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 16:23:44 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/05 18:59:59 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/06 19:50:32 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,35 @@ int	ft_check_digit(char **ag)
 			}
 		}
 		j++;
+	}
+	return (1);
+}
+
+int	ft_isnb(int ac, char **ag)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	if (!*ag[1])
+		return (0);
+	while (i < ac)
+	{
+		j = 0;
+		while (ag[i][j])
+		{
+			if (ag[i][j] < '0' || ag[i][j] > '9')
+			{
+				if ((ag[i][j] == '-' && j != 0)
+					|| ag[i][j] != '-')
+				{
+					write(1, "Error\n", 6);
+					return (0);
+				}
+			}
+			j++;
+		}
+		i++;
 	}
 	return (1);
 }

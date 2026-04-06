@@ -6,41 +6,11 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 15:11:01 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/05 23:18:55 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/06 19:51:48 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_isnb(int ac, char **ag)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	if (!*ag[1])
-		return (0);
-	while (i < ac)
-	{
-		j = 0;
-		while (ag[i][j])
-		{
-			if (ag[i][j] < '0' || ag[i][j] > '9')
-			{
-				if ((ag[i][j] == '-' && j != 0)
-					|| ag[i][j] != '-')
-				{
-					write(1, "Error\n", 6);
-					return (0);
-				}
-			}
-			j++;
-		}
-		i++;
-	}
-	write(1, "OK - ft_isdigit\n", 16);
-	return (1);
-}
 
 int	ft_compare(t_stack **stack)
 {
@@ -132,8 +102,8 @@ int	ft_isvalid(int ac, t_stack **stack, char **str)
 	if (ac == 2)
 	{
 		if (ft_check_digit(str))
-		{	
-			str = ft_split(str[1], ' ');	
+		{
+			str = ft_split(str[1], ' ');
 			ft_convert_split_args(str, stack);
 		}
 	}
@@ -158,7 +128,7 @@ int	main(int ac, char **ag)
 		return (1);
 	}
 	if (ft_isvalid(ac, &stack, str))
-	{	
+	{
 		if (ft_compare(&stack))
 			write(1, "OK - pour trier\n", 16);
 		else
