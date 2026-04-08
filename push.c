@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_a.c                                           :+:      :+:    :+:   */
+/*   push.c                                            :+:      :+:    :+:    */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -26,7 +26,7 @@ void	ft_push(t_stack **stack_a, t_stack **stack_b)
 	tmp = *stack_b;
 	tmp->next = tmp2;
 }
-/*
+
 int	main(int ac, char **ag)
 {
 	if (ac < 2)
@@ -42,9 +42,9 @@ int	main(int ac, char **ag)
 	node2 = ft_create_node(ft_atoi(ag[3]));
 	stack_b = ft_create_node(ft_atoi(ag[4]));
 	node3 = ft_create_node(ft_atoi(ag[5]));
-	add_list(&stack_a, node1);
-	add_list(&stack_a, node2);
-	add_list(&stack_b, node3);
+	ft_add_list(&stack_a, node1);
+	ft_add_list(&stack_a, node2);
+	ft_add_list(&stack_b, node3);
 	printf("stack A\n");
 	while (stack_a != NULL)
 	{
@@ -70,4 +70,4 @@ int	main(int ac, char **ag)
 		printf("%d\n", stack_b->value);
 		stack_b = stack_b->next;
 	}
-}*/
+}

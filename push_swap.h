@@ -30,5 +30,7 @@ void	*ft_clear(t_stack **lst);
 t_stack	*ft_convert_args(int ac, char **ag, t_stack **stack);
 int		ft_compare(t_stack **stack);
 int		ft_check_digit(char **ag);
+int	ft_isnb(int ac, char **ag);
+void	ft_push(t_stack **stack_a, t_stack **stack_b);
 
 #endif
