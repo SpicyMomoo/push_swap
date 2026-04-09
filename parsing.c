@@ -19,7 +19,7 @@ int	ft_compare(t_stack **stack)
 
 	if (*stack == NULL)
 	{
-		write(1, "NO - ft_compare\n", 16);
+		write(1, "NO - ft_compare / stack_vide\n", 29);
 		return (0);
 	}
 	compare_with = *stack;

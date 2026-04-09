@@ -9,7 +9,7 @@ int	main(int ac, char **ag)
 	stack = NULL;
 	if (ac == 1)
 	{
-		write(1, "Error\n", 6);
+		write(1, "\n", 1);
 		return (1);
 	}
 	if (ft_isvalid(ac, &stack, str))
