@@ -3,14 +3,14 @@
 int	main(int ac, char **ag)
 {
 	t_stack	*stack;
-	//t_stack *stack_a;
-	t_stack	*tmp;
+	t_stack *stack_a;
+	//t_stack	*tmp;
 	char	**str;
 
 	str = ag;
 	stack = NULL;
-	tmp = stack;
-	//stack_a = NULL;
+	//tmp = stack;
+	stack_a = NULL;
 	if (ac == 1)
 	{
 		write(1, "\n", 1);
@@ -22,7 +22,8 @@ int	main(int ac, char **ag)
 			ft_check_is_in_order(&stack);	
 		else
 			write(1, "Error - ft_compare\n", 19);
-	/*	printf("stack\n");
+		printf("PUSH\n");
+		printf("stack\n");
 		while (stack != NULL)
 		{
 			printf("%d\n", stack->value);
@@ -30,7 +31,7 @@ int	main(int ac, char **ag)
 		}
 		printf("stack A\n");
 		while (stack_a != NULL)
-
+		{
 			printf("%d\n", stack_a->value);
 			stack_a = stack_a->next;
 		}
@@ -45,7 +46,9 @@ int	main(int ac, char **ag)
 		while (stack_a != NULL)
 		{
 			printf("%d\n", stack_a->value);
-			stack_a = stack_a->next;*/
+			stack_a = stack_a->next;
+		}
+		/*printf("SWAP\n");
 		tmp = stack;
 		while(tmp != NULL)
 		{
@@ -61,6 +64,6 @@ int	main(int ac, char **ag)
 			tmp = tmp->next;
 		}
 		ft_clear(&stack);
-		return (0);
+		return (0);*/
 	}
 }
