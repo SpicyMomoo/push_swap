@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                            :+:      :+:    :+:    */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 11:43:24 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/05 15:30:30 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/11 16:14:28 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ void	ft_push(t_stack **stack_a, t_stack **stack_b)
 	if (!*stack_a)
 		return ;
 	tmp = *stack_a;
-	tmp->next = NULL;
 	*stack_a = (*stack_a)->next;
-	tmp = *stack_b;
-	tmp->next = tmp2;
+	*stack_b = tmp;
+	(*stack_b)->next = NULL;
 }
 /*
 int	main(int ac, char **ag)

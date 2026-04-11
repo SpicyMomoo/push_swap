@@ -1,11 +1,11 @@
 #include "push_swap.h"
 
-int	ft_check_is_in_order(t_stack **stack)
+int	ft_check_is_in_order(t_stack **stack_a)
 {
 	t_stack	*tmp;
 	t_stack	*comp;
 	
-	tmp = *stack;
+	tmp = *stack_a;
 	comp = tmp->next;	
 	while (comp)
 	{

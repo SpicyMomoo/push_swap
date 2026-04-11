@@ -34,5 +34,6 @@ void	ft_push(t_stack **stack_a, t_stack **stack_b);
 void	ft_swap_a(t_stack **begin);
 int	ft_check_is_in_order(t_stack **stack);
 int	ft_isvalid(int ac, t_stack **stack, char **str);
+void	ft_rotate(t_stack **stack_a);
 
 #endif

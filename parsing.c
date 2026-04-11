@@ -6,23 +6,23 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 15:11:01 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/06 19:51:48 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/11 16:30:54 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_compare(t_stack **stack)
+int	ft_compare(t_stack **stack_a)
 {
 	t_stack	*tmp;
 	t_stack	*compare_with;
 
-	if (*stack == NULL)
+	if (*stack_a == NULL)
 	{
-		write(1, "NO - ft_compare / stack_vide\n", 29);
+		write(1, "NO - ft_compare / stack_a_vide\n", 29);
 		return (0);
 	}
-	compare_with = *stack;
+	compare_with = *stack_a;
 	while (compare_with->next != NULL)
 	{
 		tmp = compare_with;
@@ -41,19 +41,19 @@ int	ft_compare(t_stack **stack)
 	return (1);
 }
 
-t_stack	*ft_convert_args(int ac, char **ag, t_stack **stack)
+t_stack	*ft_convert_args(int ac, char **ag, t_stack **stack_a)
 {
 	int			i;
 	int			j;
 	t_stack		*next_node;
 
 	i = 2;
-	if (!stack)
+	if (!stack_a)
 	{
 		write(1, "KO - les arguments sont convertis\n", 34);
 		return (NULL);
 	}
-	*stack = ft_create_node(ft_atoi(ag[1]));
+	*stack_a = ft_create_node(ft_atoi(ag[1]));
 	while (i < ac)
 	{
 		j = 0;
@@ -62,26 +62,26 @@ t_stack	*ft_convert_args(int ac, char **ag, t_stack **stack)
 			j++;
 		}
 		next_node = ft_create_node(ft_atoi(ag[i]));
-		ft_add_list(stack, next_node);
+		ft_add_list(stack_a, next_node);
 		i++;
 	}
 	write(1, "OK - les arguments sont convertis\n", 34);
-	return (*stack);
+	return (*stack_a);
 }
 
-t_stack	*ft_convert_split_args(char **ag, t_stack **stack)
+t_stack	*ft_convert_split_args(char **ag, t_stack **stack_a)
 {
 	int			i;
 	int			j;
 	t_stack		*next_node;
 
 	i = 1;
-	if (!stack)
+	if (!stack_a)
 	{
 		write(1, "KO - les arguments sont convertis\n", 34);
 		return (NULL);
 	}
-	*stack = ft_create_node(ft_atoi(ag[0]));
+	*stack_a = ft_create_node(ft_atoi(ag[0]));
 	while (ag[i])
 	{
 		j = 0;
@@ -90,27 +90,27 @@ t_stack	*ft_convert_split_args(char **ag, t_stack **stack)
 			j++;
 		}
 		next_node = ft_create_node(ft_atoi(ag[i]));
-		ft_add_list(stack, next_node);
+		ft_add_list(stack_a, next_node);
 		i++;
 	}
 	write(1, "OK - les arguments sont convertis\n", 34);
-	return (*stack);
+	return (*stack_a);
 }
 
-int	ft_isvalid(int ac, t_stack **stack, char **str)
+int	ft_isvalid(int ac, t_stack **stack_a, char **str)
 {
 	if (ac == 2)
 	{
 		if (ft_check_digit(str))
 		{
 			str = ft_split(str[1], ' ');
-			ft_convert_split_args(str, stack);
+			ft_convert_split_args(str, stack_a);
 		}
 	}
 	if (ac > 2)
 	{
 		if (ft_isnb(ac, str))
-			ft_convert_args(ac, str, stack);
+			ft_convert_args(ac, str, stack_a);
 	}
 	return (1);
 }

@@ -2,68 +2,69 @@
 
 int	main(int ac, char **ag)
 {
-	t_stack	*stack;
-	t_stack *stack_a;
-	//t_stack	*tmp;
+	t_stack	*stack_a;
+	t_stack *stack_b;
+	//t_stack_a	*tmp;
 	char	**str;
 
 	str = ag;
-	stack = NULL;
-	//tmp = stack;
 	stack_a = NULL;
+	//tmp = stack_a;
+	stack_b = NULL;
 	if (ac == 1)
 	{
 		write(1, "\n", 1);
 		return (1);
 	}
-	if (ft_isvalid(ac, &stack, str))
+	if (ft_isvalid(ac, &stack_a, str))
 	{
-		if (ft_compare(&stack))
-			ft_check_is_in_order(&stack);	
+		if (ft_compare(&stack_a))
+			ft_check_is_in_order(&stack_a);	
 		else
 			write(1, "Error - ft_compare\n", 19);
+		ft_rotate(&stack_a);
 		//printf("PUSH\n");
-		//printf("stack\n");
-		//while (stack != NULL)
+		//printf("stack_a\n");
+		while (stack_a != NULL)
+		{
+			printf("%d\n", stack_a->value);
+			stack_a = stack_a->next;
+		}
+		//printf("stack_a A\n");
+		//while (stack_a_b != NULL)
 		//{
-		//	printf("%d\n", stack->value);
-		//	stack = stack->next;
+		//	printf("%d\n", stack_a_b->value);
+		//	stack_a_b = stack_a->next;
 		//}
+		//ft_push(&stack_a, &stack_b);
 		//printf("stack A\n");
 		//while (stack_a != NULL)
 		//{
 		//	printf("%d\n", stack_a->value);
 		//	stack_a = stack_a->next;
 		//}
-		ft_push(&stack, &stack_a);
-		printf("stack\n");
-		while (stack != NULL)
-		{
-			printf("%d\n", stack->value);
-			stack = stack->next;
-		}
-		printf("stack A\n");
-		while (stack_a != NULL)
-		{
-			printf("%d\n", stack_a->value);
-			stack_a = stack_a->next;
-		}
+		//printf("stack B\n");
+		//while (stack_b != NULL)
+		//{
+		//	printf("%d\n", stack_b->value);
+		//	stack_b = stack_b->next;
+		//}
 		/*printf("SWAP\n");
-		tmp = stack;
+		tmp = stack_a;
 		while(tmp != NULL)
 		{
 			printf("%d\n", tmp->value);
 			tmp = tmp->next;
 		}
-		ft_swap_a(&stack);
+		ft_swap_a(&stack_a);
 		printf("------------------\n");
-		tmp = stack;	
+		tmp = stack_a;	
 		while(tmp != NULL)
 		{
 			printf("%d\n", tmp->value);
 			tmp = tmp->next;
 		}
-		ft_clear(&stack);
+		ft_clear(&stack_a);
 		return (0);*/
 	}
 }
