@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 16:22:36 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/11 23:28:18 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/12 12:57:59 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,18 @@
 void	ft_rotate(t_stack **stack)
 {
 	t_stack	*last;
-	t_stack	*before_last;
+	t_stack	*second;
 
+	second = *stack;
+	last = *stack;
 	if (!(*stack)->next)
 		return ;
-	last = *stack;
-	before_last = *stack;
-	while (before_last->next->next != NULL)
+	second = second->next;
+	while(last->next != NULL)
 	{
-		before_last = before_last->next;
+		last = last->next;
 	}
-	last = before_last->next;
-	before_last->next = *stack;
-	last->next = (*stack)->next;
+	last->next = *stack;
 	(*stack)->next = NULL;
-	*stack = last;
+	*stack = second;
 }	
