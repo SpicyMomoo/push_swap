@@ -22,49 +22,23 @@ int	main(int ac, char **ag)
 			ft_check_is_in_order(&stack_a);	
 		else
 			write(1, "Error - ft_compare\n", 19);
-		ft_rotate(&stack_a);
-		//printf("PUSH\n");
-		//printf("stack_a\n");
+		//ft_swap(&stack_a);
+		//ft_rotate(&stack_a);
+		//ft_reverse_rotate(&stack_a);
+		ft_push(&stack_a, &stack_b);
+		printf("stack A\n");
 		while (stack_a != NULL)
 		{
 			printf("%d\n", stack_a->value);
 			stack_a = stack_a->next;
 		}
-		//printf("stack_a A\n");
-		//while (stack_a_b != NULL)
-		//{
-		//	printf("%d\n", stack_a_b->value);
-		//	stack_a_b = stack_a->next;
-		//}
-		//ft_push(&stack_a, &stack_b);
-		//printf("stack A\n");
-		//while (stack_a != NULL)
-		//{
-		//	printf("%d\n", stack_a->value);
-		//	stack_a = stack_a->next;
-		//}
-		//printf("stack B\n");
-		//while (stack_b != NULL)
-		//{
-		//	printf("%d\n", stack_b->value);
-		//	stack_b = stack_b->next;
-		//}
-		/*printf("SWAP\n");
-		tmp = stack_a;
-		while(tmp != NULL)
+		printf("stack B\n");
+		while (stack_b != NULL)
 		{
-			printf("%d\n", tmp->value);
-			tmp = tmp->next;
-		}
-		ft_swap_a(&stack_a);
-		printf("------------------\n");
-		tmp = stack_a;	
-		while(tmp != NULL)
-		{
-			printf("%d\n", tmp->value);
-			tmp = tmp->next;
+			printf("%d\n", stack_b->value);
+			stack_b = stack_b->next;
 		}
 		ft_clear(&stack_a);
-		return (0);*/
+		return (0);
 	}
 }

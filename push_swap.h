@@ -31,9 +31,10 @@ int		ft_compare(t_stack **stack);
 int		ft_check_digit(char **ag);
 int	ft_isnb(int ac, char **ag);
 void	ft_push(t_stack **stack_a, t_stack **stack_b);
-void	ft_swap_a(t_stack **begin);
+void	ft_swap(t_stack **begin);
 int	ft_check_is_in_order(t_stack **stack);
 int	ft_isvalid(int ac, t_stack **stack, char **str);
 void	ft_rotate(t_stack **stack_a);
+void	ft_reverse_rotate(t_stack **stack);
 
 #endif
