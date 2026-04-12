@@ -1,11 +1,12 @@
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/28 15:10:07 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/06 19:52:13 by mduhoux          ###   ########.fr       */
+/*   Created: 2026/04/12 17:22:31 by mduhoux           #+#    #+#             */
+/*   Updated: 2026/04/12 17:22:35 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +30,11 @@ void	*ft_clear(t_stack **lst);
 t_stack	*ft_convert_args(int ac, char **ag, t_stack **stack);
 int		ft_compare(t_stack **stack);
 int		ft_check_digit(char **ag);
-int	ft_isnb(int ac, char **ag);
+int		ft_isnb(int ac, char **ag);
 void	ft_push(t_stack **stack_a, t_stack **stack_b);
 void	ft_swap(t_stack **begin);
-int	ft_check_is_in_order(t_stack **stack);
-int	ft_isvalid(int ac, t_stack **stack, char **str);
+int		ft_check_is_in_order(t_stack **stack);
+int		ft_isvalid(int ac, t_stack **stack, char **str);
 void	ft_rotate(t_stack **stack_a);
 void	ft_reverse_rotate(t_stack **stack);
 
