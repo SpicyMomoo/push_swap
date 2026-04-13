@@ -31,7 +31,7 @@ int	main(int ac, char **ag)
 		if (ft_compare(&stack_a))
 			ft_check_is_in_order(&stack_a);
 		else
-			write(1, "Error - ft_compare\n", 19);
+			write(1, "Error\n", 6);
 		//ft_swap(&stack_a);
 		//ft_rotate(&stack_a);
 		//ft_reverse_rotate(&stack_a);

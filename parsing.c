@@ -18,10 +18,7 @@ int	ft_compare(t_stack **stack_a)
 	t_stack	*compare_with;
 
 	if (*stack_a == NULL)
-	{
-		write(1, "NO - ft_compare / stack_a_vide\n", 29);
 		return (0);
-	}
 	compare_with = *stack_a;
 	while (compare_with->next != NULL)
 	{
