@@ -22,4 +22,5 @@ void	ft_swap(t_stack **stack)
 	(*stack)->next = tmp->next;
 	tmp->next = *stack;
 	*stack = tmp;
+	write(1, "sa\n", 3);
 }

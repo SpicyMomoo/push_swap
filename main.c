@@ -29,13 +29,21 @@ int	main(int ac, char **ag)
 	if (ft_isvalid(ac, &stack_a, str))
 	{
 		if (ft_compare(&stack_a))
+		{
 			ft_check_is_in_order(&stack_a);
+			if (ac == 3)
+				ft_swap(&stack_a);
+			if (ac == 4)
+			{
+				ft_check(&stack_a);
+			}				
+		}
 		else
 			write(1, "Error\n", 6);
 		//ft_swap(&stack_a);
 		//ft_rotate(&stack_a);
 		//ft_reverse_rotate(&stack_a);
-		ft_push(&stack_a, &stack_b);
+	//	ft_push(&stack_a, &stack_b);
 		printf("stack A\n");
 		while (stack_a != NULL)
 		{

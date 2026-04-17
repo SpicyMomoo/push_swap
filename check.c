@@ -32,3 +32,23 @@ int	ft_check_is_in_order(t_stack **stack_a)
 	write(1, "OK - Pas besoin de trier\n", 25);
 	return (0);
 }
+
+int	ft_check(t_stack **stack_a)
+{
+	t_stack	*tmp;
+	t_stack *comp;
+
+	tmp = *stack_a;
+	comp = tmp->next;
+	while (comp)
+	{
+		if (tmp->value > comp->value)
+		{
+			ft_swap(&tmp);
+		}
+		tmp = tmp->next;
+		comp = comp->next;
+	}
+	*stack_a = tmp;
+	return (0);
+}

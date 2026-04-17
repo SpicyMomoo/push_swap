@@ -37,5 +37,5 @@ int		ft_check_is_in_order(t_stack **stack);
 int		ft_isvalid(int ac, t_stack **stack, char **str);
 void	ft_rotate(t_stack **stack_a);
 void	ft_reverse_rotate(t_stack **stack);
-
+int	ft_check(t_stack **stack_a);
 #endif
