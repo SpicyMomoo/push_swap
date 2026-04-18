@@ -6,13 +6,13 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 11:43:24 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/18 10:06:13 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/18 17:05:35 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push(t_stack **stack_a, t_stack **stack_b)
+void	ft_push_a(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*first;
 	t_stack	*first_b;

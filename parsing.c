@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 15:11:01 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/18 10:55:06 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/18 16:36:02 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,6 @@ t_stack	*ft_convert_args(int ac, char **ag, t_stack **stack_a)
 	t_stack		*next_node;
 
 	i = 2;
-	if (!*stack_a)
-	{
-		return (NULL);
-	}
 	*stack_a = ft_create_node(ft_atoi(ag[1]));
 	while (i < ac)
 	{

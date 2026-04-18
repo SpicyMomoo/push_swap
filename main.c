@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 17:24:56 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/18 10:41:09 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/18 20:58:11 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	main(int ac, char **ag)
 				{
 					ft_trio(&stack_a);
 				}
+				else
+					ft_blind_pushb(&stack_a, &stack_b);
 			}
 		}
 		else
@@ -45,7 +47,7 @@ int	main(int ac, char **ag)
 		//ft_swap(&stack_a);
 		//ft_rotate(&stack_a);
 		//ft_reverse_rotate(&stack_a);
-	//	ft_push(&stack_a, &stack_b);
+//		ft_push(&stack_a, &stack_b);
 		printf("stack A\n");
 		while (stack_a != NULL)
 		{

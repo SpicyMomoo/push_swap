@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 17:22:31 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/18 10:09:29 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/18 20:49:25 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,7 @@ void	ft_rotate_b(t_stack **stack);
 void	ft_reverse_rotate_a(t_stack **stack);
 void	ft_reverse_rotate_b(t_stack **stack);
 void	ft_trio(t_stack **stack_a);
+void	ft_blind_pushb(t_stack **stack_a, t_stack **stack_b);
+void	find_target_node(t_stack **stack_a, t_stack **stack_b);
+int	ft_stack_size(t_stack **stack_a);
 #endif
