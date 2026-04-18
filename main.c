@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 17:24:56 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/17 20:25:40 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/18 09:57:09 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int ac, char **ag)
 			if (ac == 4)
 			{
 				ft_trio(&stack_a);
-			}				
+			}
 		}
 		else
 			write(1, "Error\n", 6);
