@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 17:24:56 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/18 09:57:09 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/18 10:41:09 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ int	main(int ac, char **ag)
 	{
 		if (ft_compare(&stack_a))
 		{
-			ft_check_is_in_order(&stack_a);
-			if (ac == 3)
-				ft_swap(&stack_a);
-			if (ac == 4)
+			if (ft_check_is_in_order(&stack_a))
 			{
-				ft_trio(&stack_a);
+				if (ac == 3)
+					ft_swap_a(&stack_a);
+				if (ac == 4)
+				{
+					ft_trio(&stack_a);
+				}
 			}
 		}
 		else

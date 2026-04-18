@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 11:43:24 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/12 16:43:11 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/18 10:06:13 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,28 @@ void	ft_push(t_stack **stack_a, t_stack **stack_b)
 		first_b->next = *stack_b;
 		*stack_b = first_b;
 	}
+	write(1, "pa\n", 3);
+}
+
+void	ft_push_b(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack	*first;
+	t_stack	*first_a;
+
+	if (!*stack_a)
+		return ;
+	first = *stack_b;
+	first_a = *stack_b;
+	*stack_b = (*stack_b)->next;
+	if (*stack_a == NULL)
+	{
+		*stack_a = first;
+		(*stack_a)->next = NULL;
+	}
+	else
+	{
+		first_a->next = *stack_a;
+		*stack_a = first_a;
+	}
+	write(1, "pb\n", 3);
 }

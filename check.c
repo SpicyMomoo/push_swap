@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 17:21:27 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/18 09:52:41 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/18 10:40:40 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_check_is_in_order(t_stack **stack_a)
 		tmp = tmp->next;
 		comp = comp->next;
 	}
-	write(1, "OK - Pas besoin de trier\n", 25);
+	write(1, "OK\n", 3);
 	return (0);
 }
 
@@ -38,22 +38,26 @@ void	ft_trio(t_stack **stack_a)
 	if ((*stack_a)->value > (*stack_a)->next->value
 		&& (*stack_a)->next->value > (*stack_a)->next->next->value)
 	{
-		ft_rotate(stack_a);
-		ft_swap(stack_a);
+		ft_rotate_a(stack_a);
+		ft_swap_a(stack_a);
 	}
 	else if ((*stack_a)->value > (*stack_a)->next->value
+		&& (*stack_a)->next->value < (*stack_a)->next->next->value
+		&& (*stack_a)->value < (*stack_a)->next->next->value)
+		ft_swap_a(stack_a);
+	else if ((*stack_a)->value > (*stack_a)->next->value
 		&& (*stack_a)->next->value < (*stack_a)->next->next->value)
-		ft_rotate(stack_a);
+		ft_rotate_a(stack_a);
 	else if ((*stack_a)->value < (*stack_a)->next->value
 		&& (*stack_a)->next->value > (*stack_a)->next->next->value
 		&& (*stack_a)->value < (*stack_a)->next->next->value)
 	{
-		ft_swap(stack_a);
-		ft_rotate(stack_a);
+		ft_swap_a(stack_a);
+		ft_rotate_a(stack_a);
 	}
 	else if ((*stack_a)->value < (*stack_a)->next->value
 		&& (*stack_a)->next->value > (*stack_a)->next->next->value)
 	{
-		ft_reverse_rotate(stack_a);
+		ft_reverse_rotate_a(stack_a);
 	}
 }

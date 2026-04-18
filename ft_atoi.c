@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 22:12:35 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/05 14:44:14 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/18 10:45:54 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,3 @@ int	ft_atoi(const char *str)
 	}
 	return (res * sign);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	printf("%d", ft_atoi("-+48"));
-}
-*/
