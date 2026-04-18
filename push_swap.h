@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 17:22:31 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/12 17:22:35 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/17 20:28:02 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ int		ft_check_is_in_order(t_stack **stack);
 int		ft_isvalid(int ac, t_stack **stack, char **str);
 void	ft_rotate(t_stack **stack_a);
 void	ft_reverse_rotate(t_stack **stack);
-int	ft_check(t_stack **stack_a);
+void	ft_trio(t_stack **stack_a);
 #endif

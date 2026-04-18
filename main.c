@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 17:24:56 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/12 17:26:53 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/17 20:25:40 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int ac, char **ag)
 				ft_swap(&stack_a);
 			if (ac == 4)
 			{
-				ft_check(&stack_a);
+				ft_trio(&stack_a);
 			}				
 		}
 		else

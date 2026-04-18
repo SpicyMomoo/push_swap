@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 17:21:27 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/12 17:27:52 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/17 21:31:50 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,23 @@ int	ft_check_is_in_order(t_stack **stack_a)
 	return (0);
 }
 
-int	ft_check(t_stack **stack_a)
+void	ft_trio(t_stack **stack_a)
 {
-	t_stack	*tmp;
-	t_stack *comp;
-
-	tmp = *stack_a;
-	comp = tmp->next;
-	while (comp)
+	if ((*stack_a)->value > (*stack_a)->next->value && (*stack_a)->next->value > (*stack_a)->next->next->value)
 	{
-		if (tmp->value > comp->value)
-		{
-			ft_swap(&tmp);
-		}
-		tmp = tmp->next;
-		comp = comp->next;
+		ft_rotate(stack_a);
+		ft_swap(stack_a);
 	}
-	*stack_a = tmp;
-	return (0);
+	if ((*stack_a)->value > (*stack_a)->next->value && (*stack_a)->next->value < (*stack_a)->next->next->value)
+		ft_rotate(stack_a);
+	if ((*stack_a)->value < (*stack_a)->next->value && (*stack_a)->next->value > (*stack_a)->next->next->value)
+	{
+		ft_swap(stack_a);
+		ft_rotate(stack_a);
+	}
+	if ((*stack_a)->value < (*stack_a)->next->value && (*stack_a)->next->value > (*stack_a)->next->next->value)
+	{
+		ft_reverse_rotate(stack_a);
+		ft_swap(stack_a);
+	}
 }
