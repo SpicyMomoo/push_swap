@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 17:22:31 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/18 20:49:25 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/19 19:19:39 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct s_stack
 {
 	int				value;
+	int				cost;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -45,4 +46,5 @@ void	ft_trio(t_stack **stack_a);
 void	ft_blind_pushb(t_stack **stack_a, t_stack **stack_b);
 void	find_target_node(t_stack **stack_a, t_stack **stack_b);
 int	ft_stack_size(t_stack **stack_a);
+void	ft_find_target_node(t_stack **stack_a, t_stack **stack_b);
 #endif
