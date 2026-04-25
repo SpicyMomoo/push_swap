@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 16:10:53 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/24 23:45:08 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/25 13:12:07 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,21 +74,34 @@ void	ft_target_node(t_stack **stack_a, t_stack **stack_b)
 
 	node = *stack_a;
 	comp = *stack_b;
-	(*stack_a)->target_node = *stack_b;
-	res_tmp = comp->value - node->value;
 	while (node)
 	{
+		node->target_node = *stack_b;
+		if (comp->value > node->value)
+			res_tmp = comp->value - node->value;
+		if (comp->value < node->value)
+			res_tmp = node->value - comp->value;
 		while (comp)
 		{
-			res = comp->value - node->value;
-			if (res > res_tmp)
+			if (comp->value > node->value)
 			{
-				node->target_node = comp;
+				res = comp->value - node->value;
+				if (res < res_tmp)
+				{
+					node->target_node = comp;
+				}
+			}
+			else if (comp->value < node->value)
+			{
+				res = node->value - comp->value;
+				if (res < res_tmp)
+				{
+					node->target_node = comp;
+				}
 			}
 			comp = comp->next; 
 		}
 		comp = *stack_b;
-		res_tmp = comp->value - node->value;
 		node = node->next;
 	}
 }
