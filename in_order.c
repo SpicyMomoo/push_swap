@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 16:10:53 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/25 13:12:07 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/25 22:32:00 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_stack_size(t_stack **stack_a)
 		i++;
 	}
 	return (i);
-}	
+}
 
 void	ft_blind_pushb(t_stack **stack_a, t_stack **stack_b)
 {
@@ -38,6 +38,8 @@ void	ft_blind_pushb(t_stack **stack_a, t_stack **stack_b)
 	ft_find_cost(stack_a);
 	ft_find_cost(stack_b);
 	ft_target_node(stack_a, stack_b);
+	ft_final_cost(stack_a);
+	ft_stack_in_order(stack_a, stack_b);
 }
 
 void	ft_find_cost(t_stack **stack)
@@ -49,11 +51,10 @@ void	ft_find_cost(t_stack **stack)
 
 	i = 0;
 	stack_size = ft_stack_size(stack);
-	median = stack_size/2;
+	median = stack_size / 2;
 	if (median % 2 != 0)
 		median += 1;
 	node = *stack;
-
 	while (node)
 	{
 		if (i < median)
@@ -65,11 +66,33 @@ void	ft_find_cost(t_stack **stack)
 	}
 }
 
+void	ft_conditions_target_node(t_stack **node, t_stack **comp, int res_tmp)
+{
+	int	res;
+
+	if ((*comp)->value > (*node)->value)
+	{
+		res = (*comp)->value - (*node)->value;
+		if (res < res_tmp)
+		{
+			(*node)->target_node = *comp;
+		}
+	}
+	else if ((*comp)->value < (*node)->value)
+	{
+		res = (*node)->value - (*comp)->value;
+		if (res < res_tmp)
+		{
+			(*node)->target_node = *comp;
+		}
+	}
+	*comp = (*comp)->next; 
+}
+
 void	ft_target_node(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*node;
 	t_stack	*comp;
-	int	res;
 	int	res_tmp;
 
 	node = *stack_a;
@@ -83,25 +106,21 @@ void	ft_target_node(t_stack **stack_a, t_stack **stack_b)
 			res_tmp = node->value - comp->value;
 		while (comp)
 		{
-			if (comp->value > node->value)
-			{
-				res = comp->value - node->value;
-				if (res < res_tmp)
-				{
-					node->target_node = comp;
-				}
-			}
-			else if (comp->value < node->value)
-			{
-				res = node->value - comp->value;
-				if (res < res_tmp)
-				{
-					node->target_node = comp;
-				}
-			}
-			comp = comp->next; 
+			ft_conditions_target_node(&node, &comp, res_tmp);
 		}
 		comp = *stack_b;
 		node = node->next;
+	}
+}
+
+void	ft_final_cost(t_stack **stack_a)
+{
+	t_stack	*tmp;
+
+	tmp = *stack_a;
+	while (tmp)
+	{
+		tmp->cost += tmp->target_node->cost;
+		tmp = tmp->next;
 	}
 }
