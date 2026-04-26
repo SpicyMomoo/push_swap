@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 11:54:58 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/18 10:45:07 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/26 20:07:53 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,19 @@ void	*ft_clear(t_stack **lst)
 		free(tmp);
 	}
 	return (0);
+}
+
+int	ft_stack_size(t_stack **stack)
+{
+	int	i;
+	t_stack	*tmp;
+
+	tmp = *stack;
+	i = 0;
+	while (tmp)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	return (i);
 }

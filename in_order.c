@@ -6,27 +6,11 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 16:10:53 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/26 19:50:51 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/26 20:35:59 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_stack_size(t_stack **stack_a)
-{
-	int	i;
-	t_stack	*tmp;
-
-	tmp = *stack_a;
-	i = 0;
-	while (tmp)
-	{
-		tmp = tmp->next;
-		i++;
-	}
-	return (i);
-}
-
 
 void	ft_print_stack(t_stack **stack)
 {
@@ -36,6 +20,18 @@ void	ft_print_stack(t_stack **stack)
 	while(tmp)
 	{
 		printf("value : %d, cost : %d, target : %d\n", tmp->value, tmp->cost, tmp->target_node->value);
+		tmp = tmp->next;
+	}
+}
+
+void	ft_print_stack_b(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	tmp = *stack;
+	while(tmp)
+	{
+		printf("value : %d, cost : %d\n", tmp->value, tmp->cost);
 		tmp = tmp->next;
 	}
 }
@@ -56,8 +52,10 @@ void	ft_blind_pushb(t_stack **stack_a, t_stack **stack_b)
 		ft_find_cost(stack_b);
 		ft_target_node(stack_a, stack_b);
 		ft_final_cost(stack_a);
-		printf("stack_a :\n");
+		printf("stack_a :\n\n");
 		ft_print_stack(stack_a);
+		printf("stack_b :\n\n");
+		ft_print_stack_b(stack_b);
 		ft_stack_in_order(stack_a, stack_b);
 		i++;
 	}
@@ -101,6 +99,12 @@ t_stack	*ft_high(t_stack **stack_a)
 	return (high);
 }
 
+void	ft_set_target_low_high(t_stack **low, t_stack **high)
+{
+	
+	(*low)->target_node = *high;
+}
+
 int	ft_conditions_target_node(t_stack **node, t_stack **node_next, int res_tmp)
 {
 	int	res;
@@ -132,6 +136,7 @@ void	ft_target_node(t_stack **stack_a, t_stack **stack_b)
 		res_tmp = -1;
 		if (node == low || node == high)
 		{
+			ft_set_target_low_high(&low, &high);
 		}
 		else
 		{
