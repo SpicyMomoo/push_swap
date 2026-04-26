@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 17:22:31 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/25 22:10:14 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/26 19:37:35 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,9 @@ void	ft_blind_pushb(t_stack **stack_a, t_stack **stack_b);
 int	ft_stack_size(t_stack **stack_a);
 void	ft_find_cost(t_stack **stack_a);
 void	ft_target_node(t_stack **stack_a, t_stack **stack_b);
-void	ft_conditions_target_node(t_stack **node, t_stack **comp, int rest_tmp);
+int	ft_conditions_target_node(t_stack **node, t_stack **node_next, int rest_tmp);
 void	ft_final_cost(t_stack **stack_a);
 void	ft_push_right_number(t_stack **stack_a);
 void	ft_stack_in_order(t_stack **stack_a, t_stack **stack_b);
+void	ft_target_node_on_top(t_stack **stack_a, t_stack **stack_b);
 #endif

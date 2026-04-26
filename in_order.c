@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 16:10:53 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/25 22:32:00 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/26 19:50:51 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,66 +27,91 @@ int	ft_stack_size(t_stack **stack_a)
 	return (i);
 }
 
+
+void	ft_print_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	tmp = *stack;
+	while(tmp)
+	{
+		printf("value : %d, cost : %d, target : %d\n", tmp->value, tmp->cost, tmp->target_node->value);
+		tmp = tmp->next;
+	}
+}
+
 void	ft_blind_pushb(t_stack **stack_a, t_stack **stack_b)
 {
 	int	stack_size;
+	int	i;
 
+	i = 0;
 	stack_size = ft_stack_size(stack_a);
 	ft_push_a(stack_a, stack_b);
 	if (stack_size > 4)
 		ft_push_a(stack_a, stack_b);
-	ft_find_cost(stack_a);
-	ft_find_cost(stack_b);
-	ft_target_node(stack_a, stack_b);
-	ft_final_cost(stack_a);
-	ft_stack_in_order(stack_a, stack_b);
-}
-
-void	ft_find_cost(t_stack **stack)
-{
-	int	median;
-	int	stack_size;
-	t_stack	*node;
-	int	i;
-
-	i = 0;
-	stack_size = ft_stack_size(stack);
-	median = stack_size / 2;
-	if (median % 2 != 0)
-		median += 1;
-	node = *stack;
-	while (node)
+	while (i < 6)
 	{
-		if (i < median)
-			node->cost = i - 0;
-		if (i >= median)
-			node->cost = stack_size - i;
-		node = node->next;
+		ft_find_cost(stack_a);
+		ft_find_cost(stack_b);
+		ft_target_node(stack_a, stack_b);
+		ft_final_cost(stack_a);
+		printf("stack_a :\n");
+		ft_print_stack(stack_a);
+		ft_stack_in_order(stack_a, stack_b);
 		i++;
 	}
 }
 
-void	ft_conditions_target_node(t_stack **node, t_stack **comp, int res_tmp)
+t_stack	*ft_low(t_stack **stack_a)
+{
+	t_stack *tmp;
+	t_stack *node_next;
+	t_stack	*low;
+	
+	tmp = *stack_a;
+	node_next = (*stack_a)->next;
+	while (tmp)
+	{
+		if (tmp->value < node_next->value)
+		{
+			low = tmp;
+		}
+		tmp = tmp->next;
+	}
+	return (low);
+}
+
+t_stack	*ft_high(t_stack **stack_a)
+{
+	t_stack *tmp;
+	t_stack *node_next;
+	t_stack	*high;
+	
+	tmp = *stack_a;
+	node_next = (*stack_a)->next;
+	while (tmp)
+	{
+		if (tmp->value > node_next->value)
+		{
+			high = tmp;
+		}
+		tmp = tmp->next;
+	}
+	return (high);
+}
+
+int	ft_conditions_target_node(t_stack **node, t_stack **node_next, int res_tmp)
 {
 	int	res;
+	
+	res = (*node)->value - (*node_next)->value;
 
-	if ((*comp)->value > (*node)->value)
+	if (res_tmp == -1 || (res < res_tmp && res > 0))
 	{
-		res = (*comp)->value - (*node)->value;
-		if (res < res_tmp)
-		{
-			(*node)->target_node = *comp;
-		}
+		(*node)->target_node = *node_next;
 	}
-	else if ((*comp)->value < (*node)->value)
-	{
-		res = (*node)->value - (*comp)->value;
-		if (res < res_tmp)
-		{
-			(*node)->target_node = *comp;
-		}
-	}
-	*comp = (*comp)->next; 
+	return (res);
 }
 
 void	ft_target_node(t_stack **stack_a, t_stack **stack_b)
@@ -94,33 +119,30 @@ void	ft_target_node(t_stack **stack_a, t_stack **stack_b)
 	t_stack	*node;
 	t_stack	*comp;
 	int	res_tmp;
+	t_stack	*low;
+	t_stack	*high;
 
 	node = *stack_a;
 	comp = *stack_b;
+	low = ft_low(stack_a);
+	high = ft_high(stack_a);
 	while (node)
 	{
 		node->target_node = *stack_b;
-		if (comp->value > node->value)
-			res_tmp = comp->value - node->value;
-		if (comp->value < node->value)
-			res_tmp = node->value - comp->value;
-		while (comp)
+		res_tmp = -1;
+		if (node == low || node == high)
 		{
-			ft_conditions_target_node(&node, &comp, res_tmp);
+		}
+		else
+		{
+			while (comp)
+			{
+				res_tmp = ft_conditions_target_node(&node, &comp, res_tmp);
+				comp = comp->next;
+			}
 		}
 		comp = *stack_b;
 		node = node->next;
 	}
 }
 
-void	ft_final_cost(t_stack **stack_a)
-{
-	t_stack	*tmp;
-
-	tmp = *stack_a;
-	while (tmp)
-	{
-		tmp->cost += tmp->target_node->cost;
-		tmp = tmp->next;
-	}
-}

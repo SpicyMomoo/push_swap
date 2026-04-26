@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 17:24:56 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/25 17:23:53 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/04/26 11:41:31 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ int	main(int ac, char **ag)
 		printf("stack A\n");
 		while (stack_a != NULL)
 		{
-			printf("%d %d %d\n", stack_a->cost, stack_a->value, stack_a->target_node->value);
+			printf("%d %d %d\n", stack_a->value, stack_a->cost, stack_a->target_node->value);
 			stack_a = stack_a->next;
 		}
 		printf("stack B\n");
 		while (stack_b != NULL)
 		{
-			printf("%d %d\n", stack_b->cost, stack_b->value);
+			printf("%d %d\n", stack_b->value, stack_b->cost);
 			stack_b = stack_b->next;
 		}
 		ft_clear(&stack_a);
