@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 17:24:56 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/26 11:41:31 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/05/01 23:03:54 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,6 @@ int	main(int ac, char **ag)
 		//ft_rotate(&stack_a);
 		//ft_reverse_rotate(&stack_a);
 //		ft_push(&stack_a, &stack_b);
-		printf("stack A\n");
-		while (stack_a != NULL)
-		{
-			printf("%d %d %d\n", stack_a->value, stack_a->cost, stack_a->target_node->value);
-			stack_a = stack_a->next;
-		}
-		printf("stack B\n");
-		while (stack_b != NULL)
-		{
-			printf("%d %d\n", stack_b->value, stack_b->cost);
-			stack_b = stack_b->next;
-		}
 		ft_clear(&stack_a);
 		return (0);
 	}

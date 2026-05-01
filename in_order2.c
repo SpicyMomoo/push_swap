@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 17:43:47 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/26 19:10:40 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/05/01 13:55:19 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_target_node_on_top(t_stack **stack_a, t_stack **stack_b)
 	tmp = *stack_a;
 	stack_size_b = ft_stack_size(stack_b);
 	median_b = stack_size_b / 2;
-	if (median_b % 2 != 0)
+	if (stack_size_b % 2 != 0)
 		median_b += 1;
 	while (tmp->target_node->value == cmp->value)
 	{
@@ -65,7 +65,7 @@ void	ft_stack_in_order(t_stack **stack_a, t_stack **stack_b)
 	stack_size = ft_stack_size(stack_a);
 	median = stack_size / 2;
 	tmp = *stack_a;
-	if (median % 2 != 0)
+	if (stack_size % 2 != 0)
 		median += 1;
 	while (tmp)
 	{

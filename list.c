@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 11:54:58 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/26 20:07:53 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/05/01 20:22:33 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_stack	*ft_create_node(int value)
 	if (!node)
 		return (NULL);
 	node->value = value;
+	node->target_node = NULL;
 	node->next = NULL;
 	return (node);
 }
