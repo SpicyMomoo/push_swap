@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 16:10:53 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/05/01 23:43:27 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/05/02 22:12:07 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,10 @@ void	ft_blind_pushb(t_stack **stack_a, t_stack **stack_b)
 		ft_clear_target(stack_a);
 		ft_clear_target(stack_b);
 	}
+	printf("stack_a :\n\n");
+	ft_print_stack(stack_a);
+	printf("stack_b :\n\n");
+	ft_print_stack_b(stack_b);
 }
 
 t_stack	*ft_low(t_stack **stack_a)
@@ -124,32 +128,32 @@ void	ft_set_target_high(t_stack **node, t_stack *stack)
 	(*node)->target_node = high;
 }
 
-int	ft_conditions_target_node(t_stack **node, t_stack **stack_b, int res_tmp)
+int	ft_conditions_target_node(t_stack **node, t_stack **stack_b, int bigger_closer)
 {
-	int	res;
-
-	res = (*node)->value - (*stack_b)->value;
-	if (res < res_tmp && res > 0)
-	{
-		(*node)->target_node = *stack_b;
+	if ((*node)->value < (*stack_b)->value)
+		return (bigger_closer);
+	if (bigger_closer < (*stack_b)->value)
+	{	
+		(*node)->target_node = (*stack_b);
+		bigger_closer = (*stack_b)->value;
 	}
-	return (res);
+	return (bigger_closer);
 }
 
 void	ft_target_node(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*node;
 	t_stack	*comp;
-	int	res_tmp;
+	int	bigger_closer;
 
 	node = *stack_a;
 	comp = *stack_b;
 	while (node)
 	{
-		res_tmp = 2147483647;
+		bigger_closer = -2147483648;
 		while (comp)
 		{
-			res_tmp = ft_conditions_target_node(&node, &comp, res_tmp);
+			bigger_closer = ft_conditions_target_node(&node, &comp, bigger_closer);
 			comp = comp->next;
 		}
 		if (!node->target_node)

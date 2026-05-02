@@ -6,93 +6,87 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 17:43:47 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/05/01 13:55:19 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/05/02 22:26:27 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_target_node_on_top(t_stack **stack_a, t_stack **stack_b)
-{	
+void	ft_target_node_on_top_a(t_stack **stack, t_stack *smaller)
+{
 	t_stack	*tmp;
-	t_stack	*cmp;
-	int	stack_size_b;
-	int	median_b;
-	int	i;
+	int	indice;
+	int	stack_size;
+	int	median;
 	
-	i = 0;
-	cmp = *stack_b;
-	tmp = *stack_a;
-	stack_size_b = ft_stack_size(stack_b);
-	median_b = stack_size_b / 2;
-	if (stack_size_b % 2 != 0)
-		median_b += 1;
-	while (tmp->target_node->value == cmp->value)
+	tmp = *stack;
+	indice = 0;
+	stack_size = ft_stack_size(stack);
+	median = stack_size / 2;
+	if (stack_size % 2 != 0)
+		median += 1; 
+	while (tmp)
 	{
-		i++;
-		cmp = cmp->next;
+		if (tmp == smaller)
+			break;
+		indice++;
+		tmp = tmp->next;
 	}
-	if (i < median_b)
+	if (indice < median)
+		while (indice-- < 0)
+			ft_rotate_a(stack);
+	else if (indice == stack_size - 1)
+		ft_reverse_rotate_a(stack);
+	else if (indice >= median)
+		while (indice++ > stack_size)
+			ft_reverse_rotate_a(stack);
+}
+
+void	ft_target_node_on_top_b(t_stack **stack, t_stack *smaller)
+{
+	t_stack	*tmp;
+	int	indice;
+	int	stack_size;
+	int	median;
+	
+	tmp = *stack;
+	indice = 0;
+	stack_size = ft_stack_size(stack);
+	median = stack_size / 2;
+	if (stack_size % 2 != 0)
+		median += 1; 
+	while (tmp)
 	{
-		while (i == 0)
-		{
-			ft_rotate_b(stack_b);
-			i--;		
-		}
+		if (tmp == smaller)
+			break;
+		indice++;
+		tmp = tmp->next;
 	}
-	else if (i > median_b)
-	{
-		while (i != median_b + 1)
-		{
-			ft_reverse_rotate_b(stack_b);
-			i++;		
-		}
-	}
+	if (indice < median)
+		while (indice-- > 0)
+			ft_rotate_b(stack);
+	else if (indice == stack_size - 1)
+		ft_reverse_rotate_b(stack);
+	else if (indice >= median)
+		while (indice++ < stack_size)
+			ft_reverse_rotate_b(stack);
 }
 
 void	ft_stack_in_order(t_stack **stack_a, t_stack **stack_b)
 {
-	int	stack_size;
-	int	i;
-	int	j;
-	int	median;
-	t_stack *tmp;
-	t_stack	*right_node;
-
-	i = (*stack_a)->cost;
-	j = 0;
-	right_node = *stack_a;
-	stack_size = ft_stack_size(stack_a);
-	median = stack_size / 2;
+	t_stack	*small_cost;
+	t_stack	*tmp;
+			
+	small_cost = *stack_a;
 	tmp = *stack_a;
-	if (stack_size % 2 != 0)
-		median += 1;
 	while (tmp)
 	{
-		if (tmp->cost < right_node->cost)
-		{
-			right_node = tmp;
-			i = j;
-		}
+		if (tmp->cost < small_cost->cost)
+			small_cost = tmp;
 		tmp = tmp->next;
-		j++;
-	}
-	if (i <= median)
-	{
-		while (i != 0)
-		{
-			ft_rotate_a(stack_a);
-			i--;
-		}
-	}
-	else if (i > median)
-	{
-		while (i != stack_size + 1)
-		{	
-			ft_reverse_rotate_a(stack_a);
-			i++;
-		}
-	}
-	ft_target_node_on_top(stack_a, stack_b);
+	}	
+	small_cost->cost = small_cost->cost - small_cost->target_node->cost;
+	ft_target_node_on_top_a(stack_a, small_cost);
+	ft_target_node_on_top_b(stack_b, small_cost->target_node);
 	ft_push_a(stack_a, stack_b);
 }
