@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 SRC = main.c list.c parsing.c push.c swap.c verif_num.c \
 	check.c rotate.c reverse_rotate.c in_order.c in_order2.c cost.c \
-	target.c high_low_node.c
+	target_a.c target_b.c high_low_node.c final_push.c 
 
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 LIBFT = ./libft/libft.a

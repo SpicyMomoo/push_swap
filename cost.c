@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 18:45:28 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/05/01 15:05:04 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/05/03 11:31:37 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ void	ft_find_cost(t_stack **stack)
 	}
 }
 
-void	ft_final_cost(t_stack **stack_a)
+void	ft_final_cost(t_stack **stack)
 {
 	t_stack	*tmp;
 
-	tmp = *stack_a;
+	tmp = *stack;
 	while (tmp)
 	{
 		tmp->cost += tmp->target_node->cost;

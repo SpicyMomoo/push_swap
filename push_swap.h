@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 17:22:31 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/05/02 22:46:37 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/05/03 12:06:11 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,22 @@ void	ft_reverse_rotate_a(t_stack **stack);
 void	ft_reverse_rotate_b(t_stack **stack);
 void	ft_trio(t_stack **stack_a);
 void	ft_blind_pushb(t_stack **stack_a, t_stack **stack_b);
-int	ft_stack_size(t_stack **stack_a);
-void	ft_find_cost(t_stack **stack_a);
-void	ft_target_node(t_stack **stack_a, t_stack **stack_b);
-int	ft_conditions_target_node(t_stack **node, t_stack **node_next, int rest_tmp);
-void	ft_final_cost(t_stack **stack_a);
-void	ft_stack_in_order(t_stack **stack_a, t_stack **stack_b);
+int	ft_stack_size(t_stack **stack);
+void	ft_find_cost(t_stack **stack);
+void	ft_target_node_a(t_stack **stack_a, t_stack **stack_b);
+void	ft_target_node_b(t_stack **stack_a, t_stack **stack_b);
+int	ft_conditions_target_node_a(t_stack **node, t_stack **node_next, int rest_tmp);
+int	ft_conditions_target_node_b(t_stack **node, t_stack **stack_a, int closest_bigger_closer);
+void	ft_final_cost(t_stack **stack);
+void	ft_stack_in_order_a(t_stack **stack_a, t_stack **stack_b);
+void	ft_stack_in_order_b(t_stack **stack_a, t_stack **stack_b);
 void	ft_target_node_on_top(t_stack **stack_a, t_stack **stack_b);
-t_stack	*ft_low(t_stack **stack_a);
-t_stack	*ft_high(t_stack **stack_a);
+void	ft_set_target_high(t_stack **node, t_stack *stack);
+void	ft_set_target_low(t_stack **node, t_stack *stack);
+t_stack	*ft_low(t_stack **stack);
+t_stack	*ft_high(t_stack **stack);
+void	ft_clear_target(t_stack **stack);
+void	ft_final_push(t_stack **stack_a, t_stack **stack_b);
+void	ft_print_stack(t_stack **stack);
+void	ft_print_stack_b(t_stack **stack);
 #endif

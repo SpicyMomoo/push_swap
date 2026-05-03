@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 17:21:27 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/18 10:40:40 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/05/03 20:47:56 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ int	ft_check_is_in_order(t_stack **stack_a)
 	while (comp)
 	{
 		if (tmp->value > comp->value)
-		{
-			write(1, "Il faut trier\n", 14);
 			return (1);
-		}
 		tmp = tmp->next;
 		comp = comp->next;
 	}
