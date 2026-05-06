@@ -56,7 +56,11 @@ int		ft_conditions_target_node_b(t_stack **node,
 void	ft_final_cost(t_stack **stack);
 void	ft_stack_in_order_a(t_stack **stack_a, t_stack **stack_b);
 void	ft_stack_in_order_b(t_stack **stack_a, t_stack **stack_b);
-void	ft_target_node_on_top(t_stack **stack_a, t_stack **stack_b);
+void	for_target_a(t_stack **stack, int indice, int median, int stack_size);
+void	for_target_b(t_stack **stack, int indice, int median, int stack_size);
+void	ft_target_node_on_top_a(t_stack **stack_a, t_stack **stack_b);
+void	ft_target_node_on_top_b(t_stack **stack_a, t_stack **stack_b);
+
 void	ft_set_target_high(t_stack **node, t_stack *stack);
 void	ft_set_target_low(t_stack **node, t_stack *stack);
 t_stack	*ft_low(t_stack **stack);

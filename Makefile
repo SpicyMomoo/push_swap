@@ -3,8 +3,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -g 
 
 SRC = main.c list.c parsing.c push.c swap.c verif_num.c \
-	check.c rotate.c reverse_rotate.c in_order.c in_order2.c cost.c \
-	target_a.c target_b.c high_low_node.c final_push.c 
+	check.c rotate.c reverse_rotate.c in_order.c stack_in_order.c cost.c \
+	target_a.c target_b.c high_low_node.c final_push.c target_node_on_top.c
 
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 LIBFT = ./libft/libft.a
