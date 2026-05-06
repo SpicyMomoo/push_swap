@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	ft_stack_in_order_a(t_stack **stack_a, t_stack **stack_b)
+void	ft_stack_in_order_a(t_stack **stack_a, t_stack **stack_b, int p_or_not)
 {
 	t_stack	*small_cost;
 	t_stack	*tmp;
@@ -27,7 +27,8 @@ void	ft_stack_in_order_a(t_stack **stack_a, t_stack **stack_b)
 	}
 	ft_target_node_on_top_a(stack_a, &small_cost);
 	ft_target_node_on_top_b(stack_b, &small_cost->target_node);
-	ft_push_a(stack_a, stack_b);
+	if (p_or_not == 1)
+		ft_push_a(stack_a, stack_b);
 }
 
 void	ft_stack_in_order_b(t_stack **stack_a, t_stack **stack_b)
@@ -37,4 +38,20 @@ void	ft_stack_in_order_b(t_stack **stack_a, t_stack **stack_b)
 	small_cost = (*stack_b)->target_node;
 	ft_target_node_on_top_a(stack_a, &small_cost);
 	ft_push_b(stack_b, stack_a);
+}
+
+void	ft_min_to_top(t_stack **stack)
+{
+	t_stack	*small_value;
+	t_stack	*tmp;
+
+	small_value = *stack;
+	tmp = *stack;
+	while (tmp)
+	{
+		if (tmp->value < small_value->value)
+			small_value = tmp;
+		tmp = tmp->next;
+	}
+	ft_target_node_on_top_a(stack, &small_value);
 }

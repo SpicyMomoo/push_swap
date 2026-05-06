@@ -54,7 +54,7 @@ int		ft_conditions_target_node_a(t_stack **node,
 int		ft_conditions_target_node_b(t_stack **node,
 			t_stack **stack_a, int closest_bigger_closer);
 void	ft_final_cost(t_stack **stack);
-void	ft_stack_in_order_a(t_stack **stack_a, t_stack **stack_b);
+void	ft_stack_in_order_a(t_stack **stack_a, t_stack **stack_b, int p_or_not);
 void	ft_stack_in_order_b(t_stack **stack_a, t_stack **stack_b);
 void	for_target_a(t_stack **stack, int indice, int median, int stack_size);
 void	for_target_b(t_stack **stack, int indice, int median, int stack_size);
@@ -69,4 +69,5 @@ void	ft_clear_target(t_stack **stack);
 void	ft_final_push(t_stack **stack_a, t_stack **stack_b);
 void	ft_print_stack(t_stack **stack);
 void	ft_print_stack_b(t_stack **stack);
+void	ft_min_to_top(t_stack **stack);
 #endif

@@ -12,32 +12,6 @@
 
 #include "push_swap.h"
 
-void	ft_min_to_top(t_stack **stack_a)
-{
-	t_stack	*tmp;
-	t_stack	*low;
-	int		stack_size;
-	int		median;
-	int		i;
-
-	tmp = *stack_a;
-	low = ft_low(stack_a);
-	stack_size = ft_stack_size(stack_a);
-	median = stack_size / 2;
-	i = low->cost;
-	if (stack_size % 2 != 0)
-		median += 1;
-	while (tmp->value == low->value)
-	{
-		if (i < median)
-			while (i-- > 0)
-				ft_rotate_a(stack_a);
-		if (i >= median)
-			while (i++ < stack_size)
-				ft_reverse_rotate_a(stack_a);
-	}
-}
-
 void	ft_print_stack(t_stack **stack)
 {
 	t_stack	*tmp;

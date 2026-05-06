@@ -27,11 +27,15 @@ void	ft_clear_target(t_stack **stack)
 void	ft_blind_pushb(t_stack **stack_a, t_stack **stack_b)
 {
 	int	stack_size;
+	int	p_or_not;
 
+	p_or_not = 1;
 	stack_size = ft_stack_size(stack_a);
 	ft_push_a(stack_a, stack_b);
 	if (stack_size > 4)
 		ft_push_a(stack_a, stack_b);
+	if (stack_size == 4 || stack_size == 5)
+		p_or_not = 0;
 	while (stack_size > 3)
 	{
 		ft_find_cost(stack_a);
@@ -42,7 +46,7 @@ void	ft_blind_pushb(t_stack **stack_a, t_stack **stack_b)
 //		ft_print_stack(stack_a);
 //		printf("stack_b :\n\n");
 //		ft_print_stack_b(stack_b);
-		ft_stack_in_order_a(stack_a, stack_b);
+		ft_stack_in_order_a(stack_a, stack_b, p_or_not);
 		stack_size = ft_stack_size(stack_a);
 		ft_clear_target(stack_a);
 		ft_clear_target(stack_b);
