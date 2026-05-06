@@ -20,12 +20,13 @@ void	ft_set_target_high(t_stack **node, t_stack *stack)
 	(*node)->target_node = high;
 }
 
-int	ft_conditions_target_node_a(t_stack **node, t_stack **stack_b, int closest_smaller)
+int	ft_conditions_target_node_a(t_stack **node,
+		t_stack **stack_b, int closest_smaller)
 {
 	if ((*node)->value < (*stack_b)->value)
 		return (closest_smaller);
 	if (closest_smaller < (*stack_b)->value)
-	{	
+	{
 		(*node)->target_node = *stack_b;
 		closest_smaller = (*stack_b)->value;
 	}
@@ -36,7 +37,7 @@ void	ft_target_node_a(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*node;
 	t_stack	*comp;
-	int	closest_smaller;
+	int		closest_smaller;
 
 	node = *stack_a;
 	comp = *stack_b;
@@ -45,7 +46,8 @@ void	ft_target_node_a(t_stack **stack_a, t_stack **stack_b)
 		closest_smaller = -2147483648;
 		while (comp)
 		{
-			closest_smaller = ft_conditions_target_node_a(&node, &comp, closest_smaller);
+			closest_smaller = ft_conditions_target_node_a(&node,
+					&comp, closest_smaller);
 			comp = comp->next;
 		}
 		if (!node->target_node)

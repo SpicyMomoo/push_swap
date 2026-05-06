@@ -14,10 +14,10 @@
 
 void	ft_find_cost(t_stack **stack)
 {
-	int	median;
-	int	stack_size;
 	t_stack	*node;
-	int	i;
+	int		median;
+	int		stack_size;
+	int		i;
 
 	i = 1;
 	stack_size = ft_stack_size(stack);

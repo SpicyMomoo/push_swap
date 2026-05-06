@@ -16,9 +16,9 @@ void	ft_min_to_top(t_stack **stack_a)
 {
 	t_stack	*tmp;
 	t_stack	*low;
-	int	stack_size;
-	int	median;
-	int	i;
+	int		stack_size;
+	int		median;
+	int		i;
 
 	tmp = *stack_a;
 	low = ft_low(stack_a);
@@ -26,7 +26,7 @@ void	ft_min_to_top(t_stack **stack_a)
 	median = stack_size / 2;
 	i = low->cost;
 	if (stack_size % 2 != 0)
-		median += 1; 
+		median += 1;
 	while (tmp->value == low->value)
 	{
 		if (i < median)
@@ -43,7 +43,7 @@ void	ft_print_stack(t_stack **stack)
 	t_stack	*tmp;
 
 	tmp = *stack;
-	while(tmp)
+	while (tmp)
 	{
 		if (!tmp->target_node)
 			printf("value : %d, cost : %d\n", tmp->value, tmp->cost);
@@ -58,19 +58,19 @@ void	ft_print_stack_b(t_stack **stack)
 	t_stack	*tmp;
 
 	tmp = *stack;
-	while(tmp)
+	while (tmp)
 	{
 		printf("value : %d, cost : %d\n", tmp->value, tmp->cost);
 		tmp = tmp->next;
 	}
 }
+
 void	ft_final_push(t_stack **stack_a, t_stack **stack_b)
 {
 	int	stack_size;
 
 	ft_trio(stack_a);
 	stack_size = ft_stack_size(stack_b);
-
 	while (stack_size > 0)
 	{
 		ft_target_node_b(stack_a, stack_b);
@@ -90,4 +90,3 @@ void	ft_final_push(t_stack **stack_a, t_stack **stack_b)
 //	ft_print_stack_b(stack_b);
 	ft_min_to_top(stack_a);
 }
-

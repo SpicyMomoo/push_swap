@@ -53,8 +53,8 @@ void	*ft_clear(t_stack **lst)
 
 int	ft_stack_size(t_stack **stack)
 {
-	int	i;
 	t_stack	*tmp;
+	int		i;
 
 	tmp = *stack;
 	i = 0;

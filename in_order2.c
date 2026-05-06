@@ -15,20 +15,20 @@
 void	ft_target_node_on_top_a(t_stack **stack, t_stack *smaller)
 {
 	t_stack	*tmp;
-	int	indice;
-	int	stack_size;
-	int	median;
-	
+	int		indice;
+	int		stack_size;
+	int		median;
+
 	tmp = *stack;
 	indice = 0;
 	stack_size = ft_stack_size(stack);
 	median = stack_size / 2;
 	if (stack_size % 2 != 0)
-		median += 1; 
+		median += 1;
 	while (tmp)
 	{
 		if (tmp == smaller)
-			break;
+			break ;
 		indice++;
 		tmp = tmp->next;
 	}
@@ -45,20 +45,20 @@ void	ft_target_node_on_top_a(t_stack **stack, t_stack *smaller)
 void	ft_target_node_on_top_b(t_stack **stack, t_stack *smaller)
 {
 	t_stack	*tmp;
-	int	indice;
-	int	stack_size;
-	int	median;
-	
+	int		indice;
+	int		stack_size;
+	int		median;
+
 	tmp = *stack;
 	indice = 0;
 	stack_size = ft_stack_size(stack);
 	median = stack_size / 2;
 	if (stack_size % 2 != 0)
-		median += 1; 
+		median += 1;
 	while (tmp)
 	{
 		if (tmp == smaller)
-			break;
+			break ;
 		indice++;
 		tmp = tmp->next;
 	}
@@ -76,7 +76,7 @@ void	ft_stack_in_order_a(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*small_cost;
 	t_stack	*tmp;
-			
+
 	small_cost = *stack_a;
 	tmp = *stack_a;
 	while (tmp)
@@ -84,7 +84,7 @@ void	ft_stack_in_order_a(t_stack **stack_a, t_stack **stack_b)
 		if (tmp->cost < small_cost->cost)
 			small_cost = tmp;
 		tmp = tmp->next;
-	}	
+	}
 	ft_target_node_on_top_a(stack_a, small_cost);
 	ft_target_node_on_top_b(stack_b, small_cost->target_node);
 	ft_push_a(stack_a, stack_b);
@@ -98,6 +98,3 @@ void	ft_stack_in_order_b(t_stack **stack_a, t_stack **stack_b)
 	ft_target_node_on_top_a(stack_a, small_cost);
 	ft_push_b(stack_b, stack_a);
 }
-
-
-

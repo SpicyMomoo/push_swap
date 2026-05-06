@@ -15,6 +15,7 @@
 void	ft_clear_target(t_stack **stack)
 {
 	t_stack	*tmp;
+
 	tmp = *stack;
 	while (tmp)
 	{
@@ -22,6 +23,7 @@ void	ft_clear_target(t_stack **stack)
 		tmp = tmp->next;
 	}
 }
+
 void	ft_blind_pushb(t_stack **stack_a, t_stack **stack_b)
 {
 	int	stack_size;
