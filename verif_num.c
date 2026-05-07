@@ -58,12 +58,12 @@ int	ft_isnb(int ac, char **ag)
 			{
 				if ((ag[i][j] == '-' && j != 0)
 					|| ag[i][j] != '-')
-				{
 					return (0);
-				}
 			}
 			j++;
 		}
+		if (ft_atoi(ag[i]) > 2147483647 || ft_atoi(ag[i]) < -2147483647)
+			return (0);
 		i++;
 	}
 	return (1);

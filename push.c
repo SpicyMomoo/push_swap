@@ -32,7 +32,7 @@ void	ft_push_a(t_stack **stack_a, t_stack **stack_b)
 		first_b->next = *stack_b;
 		*stack_b = first_b;
 	}
-	write(1, "pa\n", 3);
+	write(1, "pb\n", 3);
 }
 
 void	ft_push_b(t_stack **stack_a, t_stack **stack_b)
@@ -55,5 +55,5 @@ void	ft_push_b(t_stack **stack_a, t_stack **stack_b)
 		first_b->next = *stack_b;
 		*stack_b = first_b;
 	}
-	write(1, "pb\n", 3);
+	write(1, "pa\n", 3);
 }

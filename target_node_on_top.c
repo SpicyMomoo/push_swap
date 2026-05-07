@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   target_node_on_top.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/25 17:43:47 by mduhoux           #+#    #+#             */
+/*   Updated: 2026/05/03 20:34:56 by mduhoux          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_target_node_on_top_a(t_stack **stack, t_stack **smaller)
@@ -59,7 +71,7 @@ void	for_target_b(t_stack **stack, int indice, int median, int stack_size)
 }
 
 void	for_target_a(t_stack **stack, int indice, int median, int stack_size)
-{	
+{
 	if (indice < median)
 		while (indice-- > 0)
 			ft_rotate_a(stack);

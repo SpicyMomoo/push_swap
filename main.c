@@ -12,6 +12,29 @@
 
 #include "push_swap.h"
 
+void	ft_begin(int ac, t_stack **stack_a, t_stack **stack_b, char ***str)
+{
+	if (ft_isvalid(ac, stack_a, *str))
+	{
+		if (ft_compare(stack_a))
+		{
+			if (ft_check_is_in_order(stack_a))
+			{
+				if (ac == 3)
+					ft_swap_a(stack_a);
+				else if (ac == 4)
+					ft_trio(stack_a);
+				else
+					ft_blind_pushb(stack_a, stack_b);
+			}
+		}
+		else
+			write(1, "Error\n", 6);
+		ft_clear(stack_a);
+		ft_clear(stack_b);
+	}
+}
+
 int	main(int ac, char **ag)
 {
 	t_stack	*stack_a;
@@ -26,25 +49,6 @@ int	main(int ac, char **ag)
 		write(1, "\n", 1);
 		return (1);
 	}
-	if (ft_isvalid(ac, &stack_a, str))
-	{
-		if (ft_compare(&stack_a))
-		{
-			if (ft_check_is_in_order(&stack_a))
-			{
-				if (ac == 3)
-					ft_swap_a(&stack_a);
-				else if (ac == 4)
-					ft_trio(&stack_a);
-				else
-					ft_blind_pushb(&stack_a, &stack_b);
-			}
-		}
-		else
-			write(1, "Error\n", 6);
-		ft_print_stack(&stack_a);
-		ft_clear(&stack_a);
-		ft_clear(&stack_b);
-		return (0);
-	}
+	ft_begin(ac, &stack_a, &stack_b, &str);
+	return (0);
 }

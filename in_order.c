@@ -42,18 +42,10 @@ void	ft_blind_pushb(t_stack **stack_a, t_stack **stack_b)
 		ft_find_cost(stack_b);
 		ft_target_node_a(stack_a, stack_b);
 		ft_final_cost(stack_a);
-//		printf("stack_a :\n\n");
-//		ft_print_stack(stack_a);
-//		printf("stack_b :\n\n");
-//		ft_print_stack_b(stack_b);
 		ft_stack_in_order_a(stack_a, stack_b, p_or_not);
 		stack_size = ft_stack_size(stack_a);
 		ft_clear_target(stack_a);
 		ft_clear_target(stack_b);
 	}
-//	printf("stack_a :\n\n");
-//	ft_print_stack(stack_a);
-//	printf("stack_b :\n\n");
-//	ft_print_stack_b(stack_b);
 	ft_final_push(stack_a, stack_b);
 }

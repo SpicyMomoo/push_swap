@@ -60,7 +60,6 @@ void	for_target_a(t_stack **stack, int indice, int median, int stack_size);
 void	for_target_b(t_stack **stack, int indice, int median, int stack_size);
 void	ft_target_node_on_top_a(t_stack **stack_a, t_stack **stack_b);
 void	ft_target_node_on_top_b(t_stack **stack_a, t_stack **stack_b);
-
 void	ft_set_target_high(t_stack **node, t_stack *stack);
 void	ft_set_target_low(t_stack **node, t_stack *stack);
 t_stack	*ft_low(t_stack **stack);
@@ -70,4 +69,6 @@ void	ft_final_push(t_stack **stack_a, t_stack **stack_b);
 void	ft_print_stack(t_stack **stack);
 void	ft_print_stack_b(t_stack **stack);
 void	ft_min_to_top(t_stack **stack);
+void	ft_begin(int ac, t_stack **stack_a, t_stack **stack_b, char ***str);
+
 #endif

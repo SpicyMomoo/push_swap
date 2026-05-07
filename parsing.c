@@ -60,24 +60,20 @@ t_stack	*ft_convert_args(int ac, char **ag, t_stack **stack_a)
 
 t_stack	*ft_convert_split_args(char **ag, t_stack **stack_a)
 {
-	int			i;
-	int			j;
-	t_stack		*next_node;
+	int		i;
+	t_stack	*next_node;
 
 	i = 1;
 	if (!stack_a)
-	{
 		return (NULL);
-	}
-	*stack_a = ft_create_node(ft_atoi(ag[0]));
+	if (ft_atoi(ag[0]) > 2147483647 || ft_atoi(ag[0]) < -2147483648)
+		return (NULL);
+	*stack_a = ft_create_node((int)ft_atoi(ag[0]));
 	while (ag[i])
 	{
-		j = 0;
-		while (ag[i][j])
-		{
-			j++;
-		}
-		next_node = ft_create_node(ft_atoi(ag[i]));
+		if (ft_atoi(ag[i]) > 2147483647 || ft_atoi(ag[i]) < -2147483648)
+			return (NULL);
+		next_node = ft_create_node((int)ft_atoi(ag[i]));
 		ft_add_list(stack_a, next_node);
 		i++;
 	}
