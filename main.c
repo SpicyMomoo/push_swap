@@ -29,7 +29,7 @@ void	ft_begin(int ac, t_stack **stack_a, t_stack **stack_b, char ***str)
 			}
 		}
 		else
-			write(1, "Error\n", 6);
+			write(2, "Error\n", 6);
 		ft_clear(stack_a);
 		ft_clear(stack_b);
 	}
