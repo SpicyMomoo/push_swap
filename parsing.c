@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 15:11:01 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/04/18 16:36:02 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/05/09 12:47:54 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,15 +80,35 @@ t_stack	*ft_convert_split_args(char **ag, t_stack **stack_a)
 	return (*stack_a);
 }
 
+void	ft_free_tab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	if (!tab)
+		return ;
+	while (tab[i])
+		free(tab[i++]);
+	free(tab);
+}
+
 int	ft_isvalid(int ac, t_stack **stack_a, char **str)
 {
+	char	**split;
+
 	if (ac == 2)
 	{
 		if (ft_check_digit(str))
 		{
-			str = ft_split(str[1], ' ');
-			ft_convert_split_args(str, stack_a);
+			split = ft_split(str[1], ' ');
+			if (!split || !split[0] || !ft_convert_split_args(split, stack_a))
+			{
+				ft_free_tab(split);
+				ft_clear(stack_a);
+				return (0);
+			}
 		}
+		ft_free_tab(split);
 	}
 	if (ac > 2)
 	{

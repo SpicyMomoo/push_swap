@@ -32,6 +32,7 @@ clean:
 fclean: clean
 	@make fclean -C ./libft 1>/dev/null
 	@rm -f $(NAME)
+	@echo "All clear!"
 
 re: fclean $(NAME)
 

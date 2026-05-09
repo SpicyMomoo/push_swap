@@ -6,7 +6,7 @@
 /*   By: mduhoux <mduhoux@student.42belgium.be      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 17:22:31 by mduhoux           #+#    #+#             */
-/*   Updated: 2026/05/03 12:06:11 by mduhoux          ###   ########.fr       */
+/*   Updated: 2026/05/09 12:47:05 by mduhoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ void	ft_print_stack(t_stack **stack);
 void	ft_print_stack_b(t_stack **stack);
 void	ft_min_to_top(t_stack **stack);
 void	ft_begin(int ac, t_stack **stack_a, t_stack **stack_b, char ***str);
+void	ft_free_tab(char **tab);
 
 #endif
