@@ -96,6 +96,7 @@ int	ft_isvalid(int ac, t_stack **stack_a, char **str)
 {
 	char	**split;
 
+	split = NULL;
 	if (ac == 2)
 	{
 		if (ft_check_digit(str))

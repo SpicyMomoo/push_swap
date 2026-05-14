@@ -14,15 +14,18 @@
 
 void	ft_begin(int ac, t_stack **stack_a, t_stack **stack_b, char ***str)
 {
+	int	size;
+
 	if (ft_isvalid(ac, stack_a, *str))
 	{
 		if (ft_compare(stack_a))
 		{
+			size = ft_stack_size(stack_a);
 			if (ft_check_is_in_order(stack_a))
 			{
-				if (ac == 3)
+				if (size == 3)
 					ft_swap_a(stack_a);
-				else if (ac == 4)
+				else if (size == 4)
 					ft_trio(stack_a);
 				else
 					ft_blind_pushb(stack_a, stack_b);
