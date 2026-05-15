@@ -2,7 +2,7 @@ _This project has been created as part of the 42 curriculum by mduhoux_
 
 #Description
 
-The goal of this project is to write a program that outputs the shortest possible list of instructions to sort the given input. For this, we had 11 operations to move our numbers in the different stacks.
+The goal of this project is to write a program that outputs the shortest possible list of instructions to sort the given input. For this, we had 11 operations to move our numbers in the two different stacks.
 At first, our numbers give in arguments will be put in the stack A, and we will play with an another stack, stack B.
 For the algorithm I took the turk. His logic is to count the cost of the operations of all the numbers and push the number with the lower cost.
 
